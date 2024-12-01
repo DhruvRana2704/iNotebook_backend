@@ -1,12 +1,12 @@
+require('dotenv').config();
 const bcryptjs = require('bcryptjs');
 const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 var jwt = require('jsonwebtoken');
-const JWT_SECRET = "dhruv$Rana";
+const JWT_SECRET = process.env.JWT_SECRET;
 const fetchuser=require('../middleware/fetchuser')
-
 // Route 1. Create a user using POST "/api/auth", doesn't require authentication
 
 router.post('/createuser', [

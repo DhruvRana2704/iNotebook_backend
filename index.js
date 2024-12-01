@@ -7,10 +7,11 @@ const port = 5000
 app.use(express.json())
 app.use(cors())
 // Available Routes
-
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/notes',require('./routes/notes'))
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
   console.log(`Example app listening on port ${port}`)
 })
